@@ -302,7 +302,7 @@
     + '<section id="top" class="hero-section" style="position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden">'
     + '  <div class="hero-video-wrap" style="position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none">'
     + '    <img src="assets/hero-desert-3.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" />'
-    + '    <iframe class="hero-video-frame" src="https://www.youtube-nocookie.com/embed/RaQ77QdRPNA?autoplay=1&mute=1&loop=1&playlist=RaQ77QdRPNA&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1&fs=0" title="" allow="autoplay; encrypted-media" tabindex="-1" style="position: absolute; top: 0; left: 50%; height: 100%; width: auto; aspect-ratio: 16 / 9; min-width: 100%; transform: translateX(-50%); border: 0"></iframe>'
+    + '    <iframe class="hero-video-frame" src="https://www.youtube-nocookie.com/embed/RaQ77QdRPNA?autoplay=1&mute=1&loop=1&playlist=RaQ77QdRPNA&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1&fs=0" title="" allow="autoplay; encrypted-media" tabindex="-1" style="position: absolute; top: 0; left: 0; border: 0"></iframe>'
     + '  </div>'
     + '  <div style="position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right, rgba(247,236,224,0.96) 0%, rgba(247,236,224,0.94) 30%, rgba(247,236,224,0.78) 50%, rgba(247,236,224,0.25) 72%, rgba(247,236,224,0) 100%)"></div>'
     + '  <div class="hero-inner" style="position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 120px 28px 72px; color: #1f1b13">'
@@ -534,6 +534,7 @@
     var app = document.getElementById('app');
     app.innerHTML = html;
     processInstagram();
+    fitHeroVideo();
   }
 
   function processInstagram() {
@@ -541,6 +542,38 @@
       window.instgrm.Embeds.process();
     }
   }
+
+  // True "background-size: cover" sizing for the hero YouTube iframe.
+  // object-fit/aspect-ratio on the iframe itself don't help here — the
+  // YouTube player always letterboxes its 16:9 video to whatever box it's
+  // given — so instead we size the iframe box itself: whichever dimension
+  // (width or height) needs the bigger scale to cover the wrapper wins,
+  // the other overflows and gets clipped by the wrapper's overflow:hidden.
+  var HERO_VIDEO_RATIO = 16 / 9;
+  function fitHeroVideo() {
+    var wrap = document.querySelector('.hero-video-wrap');
+    var frame = document.querySelector('.hero-video-frame');
+    if (!wrap || !frame) return;
+    var w = wrap.clientWidth, h = wrap.clientHeight;
+    if (!w || !h) return;
+    var width, height;
+    if (w / h > HERO_VIDEO_RATIO) {
+      width = w;
+      height = w / HERO_VIDEO_RATIO;
+    } else {
+      height = h;
+      width = h * HERO_VIDEO_RATIO;
+    }
+    frame.style.width = width + 'px';
+    frame.style.height = height + 'px';
+    frame.style.left = ((w - width) / 2) + 'px';
+    frame.style.top = ((h - height) / 2) + 'px';
+  }
+  var heroVideoResizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(heroVideoResizeTimer);
+    heroVideoResizeTimer = setTimeout(fitHeroVideo, 100);
+  });
 
   document.addEventListener('click', function (e) {
     var langBtn = e.target.closest('[data-lang]');
