@@ -531,8 +531,16 @@
     + '</footer>'
     + '</x-dc>';
 
+    // Replacing #app's innerHTML destroys and recreates every node,
+    // including ones above the fold (hero video, header) — the browser
+    // has nothing stable to anchor the scroll position to during that
+    // instant, so it can jump around before settling. Capture/restore
+    // it manually so toggling a FAQ item (or switching language, or
+    // opening a hotel video) never moves the viewport.
+    var scrollX = window.scrollX, scrollY = window.scrollY;
     var app = document.getElementById('app');
     app.innerHTML = html;
+    window.scrollTo(scrollX, scrollY);
     processInstagram();
     fitHeroVideo();
     revealHeroVideo();
