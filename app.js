@@ -302,7 +302,7 @@
     + '<section id="top" class="hero-section" style="position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden">'
     + '  <div class="hero-video-wrap" style="position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none">'
     + '    <img src="assets/hero-desert-3.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" />'
-    + '    <iframe class="hero-video-frame" src="https://www.youtube-nocookie.com/embed/RaQ77QdRPNA?autoplay=1&mute=1&loop=1&playlist=RaQ77QdRPNA&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1&fs=0" title="" allow="autoplay; encrypted-media" tabindex="-1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0"></iframe>'
+    + '    <iframe class="hero-video-frame" src="https://www.youtube-nocookie.com/embed/RaQ77QdRPNA?autoplay=1&mute=1&loop=1&playlist=RaQ77QdRPNA&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&playsinline=1&fs=0" title="" allow="autoplay; encrypted-media" tabindex="-1" style="position: absolute; top: 0; left: 50%; height: 100%; width: auto; aspect-ratio: 16 / 9; min-width: 100%; transform: translateX(-50%); border: 0"></iframe>'
     + '  </div>'
     + '  <div style="position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right, rgba(247,236,224,0.96) 0%, rgba(247,236,224,0.94) 30%, rgba(247,236,224,0.78) 50%, rgba(247,236,224,0.25) 72%, rgba(247,236,224,0) 100%)"></div>'
     + '  <div class="hero-inner" style="position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 120px 28px 72px; color: #1f1b13">'
