@@ -198,7 +198,7 @@
 
   function renderProgram(t) {
     return t.program.map(function (d) {
-      return '<div style="display: grid; grid-template-columns: 92px 1fr; gap: 24px; align-items: stretch">' +
+      return '<div class="program-row" style="display: grid; grid-template-columns: 92px 1fr; gap: 24px; align-items: stretch">' +
         '<div style="display: flex; flex-direction: column; align-items: center">' +
         '<div style="width: 62px; height: 62px; border-radius: 50%; background: #2b261e; color: #e6c183; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0">' +
         '<span style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; opacity: 0.7">' + esc(t.dayWord) + '</span>' +
@@ -282,41 +282,41 @@
     + '<x-dc>'
     + '<header style="position: sticky; top: 0; z-index: 50; background: rgba(250,246,238,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(138,106,60,0.12)">'
     + '  <div style="max-width: 1200px; margin: 0 auto; padding: 15px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px">'
-    + '    <a href="#top" style="display: flex; align-items: center"><img src="assets/logo.png" alt="Qibla Travel" style="height: 36px; width: auto; display: block" /></a>'
-    + '    <nav style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 600">'
+    + '    <a href="#top" style="display: flex; align-items: center; flex-shrink: 0"><img src="assets/logo.png" alt="Qibla Travel" style="height: 36px; width: auto; display: block" /></a>'
+    + '    <nav class="site-nav" style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 600">'
     + '      <a href="#package" style="color: #4d463a">' + esc(t.navPackage) + '</a>'
     + '      <a href="#program" style="color: #4d463a">' + esc(t.navProgram) + '</a>'
     + '      <a href="#hotels" style="color: #4d463a">' + esc(t.navHotels) + '</a>'
     + '      <a href="#reviews" style="color: #4d463a">' + esc(t.navReviews) + '</a>'
     + '      <a href="#faq" style="color: #4d463a">FAQ</a>'
     + '    </nav>'
-    + '    <div style="display: flex; align-items: center; gap: 12px">'
+    + '    <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0">'
     + '      <div style="display: flex; border: 1px solid rgba(138,106,60,0.35); border-radius: 999px; overflow: hidden; font-size: 12px; font-weight: 700">'
     + langBtn('ru', 'RU') + langBtn('kz', 'KZ')
     + '      </div>'
-    + '      <a href="' + WA_LINK + '" target="_blank" rel="noopener" class="btn-wa" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #ffffff; padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 700">' + waIcon(16) + 'WhatsApp</a>'
+    + '      <a href="' + WA_LINK + '" target="_blank" rel="noopener" class="btn-wa nav-wa" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #ffffff; padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 700">' + waIcon(16) + '<span class="nav-wa-label">WhatsApp</span></a>'
     + '    </div>'
     + '  </div>'
     + '</header>'
 
-    + '<section id="top" style="position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden">'
+    + '<section id="top" class="hero-section" style="position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden">'
     + '  <div style="position: absolute; inset: 0; z-index: 0; transform-origin: 78% center; animation: qtKen 18s ease-in-out infinite alternate">'
     + '    <img src="assets/hero-desert-3.png" alt="" style="width: 100%; height: 100%; object-fit: cover" />'
     + '  </div>'
     + '  <div style="position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right, rgba(247,236,224,0.96) 0%, rgba(247,236,224,0.94) 30%, rgba(247,236,224,0.78) 50%, rgba(247,236,224,0.25) 72%, rgba(247,236,224,0) 100%)"></div>'
-    + '  <div style="position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 120px 28px 72px; color: #1f1b13">'
+    + '  <div class="hero-inner" style="position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: 0 auto; padding: 120px 28px 72px; color: #1f1b13">'
     + '    <div style="animation: qtFadeUp 0.8s ease both; max-width: 780px">'
     + '      <div style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(117,90,38,0.4); border-radius: 999px; padding: 8px 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #755a26; background: rgba(255,255,255,0.55); backdrop-filter: blur(6px)">'
     + '        <span style="width: 6px; height: 6px; border-radius: 50%; background: #755a26"></span>Umrah Service · ' + esc(t.badgeSeason)
     + '      </div>'
-    + '      <h1 style="font-family: \'Playfair Display\', serif; font-size: 76px; line-height: 1.02; font-weight: 600; margin: 26px 0 20px; text-wrap: balance; text-shadow: 0 1px 20px rgba(255,248,243,0.6)">' + esc(t.heroTitle) + '</h1>'
+    + '      <h1 class="hero-title" style="font-family: \'Playfair Display\', serif; font-size: 76px; line-height: 1.02; font-weight: 600; margin: 26px 0 20px; text-wrap: balance; text-shadow: 0 1px 20px rgba(255,248,243,0.6)">' + esc(t.heroTitle) + '</h1>'
     + '      <p style="font-size: 18px; line-height: 1.65; color: #4d463a; max-width: 520px; margin: 0 0 34px">' + esc(t.heroSub) + '</p>'
-    + '      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap">'
+    + '      <div class="hero-cta-row" style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap">'
     + '        <a href="' + WA_LINK + '" target="_blank" rel="noopener" class="btn-wa" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #ffffff; padding: 17px 34px; border-radius: 999px; font-size: 15px; font-weight: 800">' + waIcon(20) + esc(t.ctaMain) + '</a>'
     + '        <a href="#program" class="btn-outline" style="color: #2b261e; font-size: 15px; font-weight: 700; border: 1px solid rgba(43,38,30,0.35); padding: 16px 30px; border-radius: 999px">' + esc(t.ctaProgram) + '</a>'
     + '      </div>'
     + '    </div>'
-    + '    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 44px">'
+    + '    <div class="hero-badges" style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 44px">'
     + '      <div style="background: rgba(255,255,255,0.6); backdrop-filter: blur(8px); border: 1px solid rgba(117,90,38,0.18); border-radius: 16px; padding: 15px 24px">'
     + '        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #755a26; text-transform: uppercase">' + esc(t.dates) + '</div>'
     + '        <div style="font-size: 22px; font-weight: 800; margin-top: 4px">12.09 – 19.09</div>'
@@ -334,13 +334,13 @@
     + '</section>'
 
     + '<section style="background: #2b261e; color: #faefe2">'
-    + '  <div style="max-width: 1200px; margin: 0 auto; padding: 40px 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center">' + renderStats(t) + '</div>'
+    + '  <div class="stats-grid" style="max-width: 1200px; margin: 0 auto; padding: 40px 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center">' + renderStats(t) + '</div>'
     + '</section>'
 
-    + '<section style="max-width: 1200px; margin: 0 auto; padding: 96px 28px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center">'
+    + '<section class="section-pad intro-grid" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center">'
     + '  <div>'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 16px">' + esc(t.introKicker) + '</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 22px; text-wrap: balance">' + esc(t.introTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 22px; text-wrap: balance">' + esc(t.introTitle) + '</h2>'
     + '    <p style="font-size: 17px; line-height: 1.75; color: #4d463a; margin: 0 0 18px">' + esc(t.introP1) + '</p>'
     + '    <p style="font-size: 17px; line-height: 1.75; color: #4d463a; margin: 0">' + esc(t.introP2) + '</p>'
     + '  </div>'
@@ -350,32 +350,32 @@
     + '  </div>'
     + '</section>'
 
-    + '<section id="package" style="max-width: 1200px; margin: 0 auto; padding: 80px 28px 40px">'
+    + '<section id="package" class="section-pad" style="max-width: 1200px; margin: 0 auto; padding: 80px 28px 40px">'
     + '  <div style="text-align: center; max-width: 640px; margin: 0 auto 56px">'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.packageKicker) + '</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.packageTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.packageTitle) + '</h2>'
     + '  </div>'
-    + '  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px">' + renderPackage(t) + '</div>'
+    + '  <div class="pkg-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px">' + renderPackage(t) + '</div>'
     + '</section>'
 
     + '<section id="program" style="background: #f7ece0">'
-    + '  <div style="max-width: 1000px; margin: 0 auto; padding: 96px 28px">'
+    + '  <div class="section-pad" style="max-width: 1000px; margin: 0 auto; padding: 96px 28px">'
     + '    <div style="text-align: center; max-width: 640px; margin: 0 auto 56px">'
     + '      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.programKicker) + '</div>'
-    + '      <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.programTitle) + '</h2>'
+    + '      <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.programTitle) + '</h2>'
     + '    </div>'
-    + '    <div style="position: relative; display: grid; gap: 18px">' + renderProgram(t) + '</div>'
+    + '    <div class="program-grid" style="position: relative; display: grid; gap: 18px">' + renderProgram(t) + '</div>'
     + '  </div>'
     + '</section>'
 
-    + '<section id="hotels" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px 40px">'
+    + '<section id="hotels" class="section-pad" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px 40px">'
     + '  <div style="text-align: center; max-width: 640px; margin: 0 auto 56px">'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.hotelsKicker) + '</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.hotelsTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.hotelsTitle) + '</h2>'
     + '  </div>'
-    + '  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px">'
+    + '  <div class="hotels-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px">'
     + '    <div style="background: #FFFFFF; border: 1px solid rgba(138,106,60,0.14); border-radius: 26px; overflow: hidden; box-shadow: 0 30px 56px -40px rgba(74,60,40,0.4); display: flex; flex-direction: column">'
-    + '      <div style="height: 440px; position: relative">'
+    + '      <div class="hotel-photo" style="height: 440px; position: relative">'
     + '        <img src="assets/hotel-grand.webp" alt="Emaar Grand" style="width:100%;height:100%;object-fit:cover" />'
     + '        <div style="position: absolute; top: 16px; left: 16px; background: rgba(20,16,10,0.6); backdrop-filter: blur(4px); color: #faefe2; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; pointer-events: none">' + esc(t.mecca) + ' · 5 ' + esc(t.nightsWord) + '</div>'
     + '      </div>'
@@ -392,7 +392,7 @@
     + '      </div>'
     + '    </div>'
     + '    <div style="background: #FFFFFF; border: 1px solid rgba(138,106,60,0.14); border-radius: 26px; overflow: hidden; box-shadow: 0 30px 56px -40px rgba(74,60,40,0.4); display: flex; flex-direction: column">'
-    + '      <div style="height: 440px; position: relative">'
+    + '      <div class="hotel-photo" style="height: 440px; position: relative">'
     + '        <img src="assets/hotel-mektan.webp" alt="Emaar Mektan" style="width:100%;height:100%;object-fit:cover" />'
     + '        <div style="position: absolute; top: 16px; left: 16px; background: rgba(20,16,10,0.6); backdrop-filter: blur(4px); color: #faefe2; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; pointer-events: none">' + esc(t.medina) + ' · 2 ' + esc(t.nights2) + '</div>'
     + '      </div>'
@@ -418,35 +418,35 @@
         : '')
     + '</section>'
 
-    + '<section style="max-width: 1200px; margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center">'
+    + '<section class="section-pad why-grid" style="max-width: 1200px; margin: 0 auto; padding: 80px 28px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center">'
     + '  <div style="position: relative"><div style="width: 100%; aspect-ratio: 3 / 4; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 70px -34px rgba(74,60,40,0.5)"><img src="assets/why-photo.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div></div>'
     + '  <div>'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.whyKicker) + '</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 18px; text-wrap: balance">' + esc(t.whyTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 18px; text-wrap: balance">' + esc(t.whyTitle) + '</h2>'
     + '    <p style="font-size: 16px; line-height: 1.7; color: #4d463a; margin: 0 0 30px">' + esc(t.whyText) + '</p>'
     + '    <div style="display: grid; gap: 12px">' + renderWhy(t) + '</div>'
     + '  </div>'
     + '</section>'
 
     + '<section style="background: #2b261e">'
-    + '  <div style="max-width: 1200px; margin: 0 auto; padding: 90px 28px">'
+    + '  <div class="section-pad" style="max-width: 1200px; margin: 0 auto; padding: 90px 28px">'
     + '    <div style="text-align: center; max-width: 640px; margin: 0 auto 48px">'
     + '      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #e6c183; text-transform: uppercase; margin-bottom: 14px">' + esc(t.galleryKicker) + '</div>'
-    + '      <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #faefe2; margin: 0; text-wrap: balance">' + esc(t.galleryTitle) + '</h2>'
+    + '      <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #faefe2; margin: 0; text-wrap: balance">' + esc(t.galleryTitle) + '</h2>'
     + '    </div>'
-    + '    <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 200px 200px; gap: 14px">'
-    + '      <div style="grid-column: span 2; grid-row: span 2; border-radius: 18px; overflow: hidden"><img src="assets/gal-1.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
+    + '    <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 200px 200px; gap: 14px">'
+    + '      <div class="gal-big" style="grid-column: span 2; grid-row: span 2; border-radius: 18px; overflow: hidden"><img src="assets/gal-1.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
     + '      <div style="border-radius: 18px; overflow: hidden"><img src="assets/gal-2.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
     + '      <div style="border-radius: 18px; overflow: hidden"><img src="assets/gal-3.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
-    + '      <div style="grid-column: span 2; border-radius: 18px; overflow: hidden"><img src="assets/gal-4.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
+    + '      <div class="gal-wide" style="grid-column: span 2; border-radius: 18px; overflow: hidden"><img src="assets/gal-4.webp" alt="" style="width:100%;height:100%;object-fit:cover" /></div>'
     + '    </div>'
     + '  </div>'
     + '</section>'
 
-    + '<section style="max-width: 1200px; margin: 0 auto; padding: 96px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center">'
+    + '<section class="section-pad guide-grid" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center">'
     + '  <div>'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.guideKicker) + '</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 20px; text-wrap: balance">' + esc(t.guideTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; line-height: 1.08; font-weight: 600; color: #2b261e; margin: 0 0 20px; text-wrap: balance">' + esc(t.guideTitle) + '</h2>'
     + '    <p style="font-size: 17px; line-height: 1.75; color: #4d463a; margin: 0 0 26px">' + esc(t.guideText) + '</p>'
     + '    <div style="display: grid; gap: 16px">' + renderGuidePoints(t) + '</div>'
     + '  </div>'
@@ -459,10 +459,10 @@
     + '  </div>'
     + '</section>'
 
-    + '<section id="instagram" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px">'
+    + '<section id="instagram" class="section-pad" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px">'
     + '  <div style="text-align: center; max-width: 640px; margin: 0 auto 48px">'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">Instagram</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0 0 16px; text-wrap: balance">' + esc(t.igTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0 0 16px; text-wrap: balance">' + esc(t.igTitle) + '</h2>'
     + '    <p style="font-size: 16px; line-height: 1.7; color: #4d463a; margin: 0 auto 24px; max-width: 520px">' + esc(t.igText) + '</p>'
     + '    <a href="https://www.instagram.com/qibla_travel_kazakhstan/" target="_blank" rel="noopener" class="btn-ig" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(95deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%); color: #ffffff; padding: 13px 26px; border-radius: 999px; font-size: 14px; font-weight: 700; box-shadow: 0 8px 22px -8px rgba(214,41,118,0.6)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>@qibla_travel_kazakhstan</a>'
     + '  </div>'
@@ -470,27 +470,27 @@
     + '</section>'
 
     + '<section id="reviews" style="background: #f7ece0">'
-    + '  <div style="max-width: 1200px; margin: 0 auto; padding: 96px 28px">'
+    + '  <div class="section-pad" style="max-width: 1200px; margin: 0 auto; padding: 96px 28px">'
     + '    <div style="text-align: center; max-width: 640px; margin: 0 auto 56px">'
     + '      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">' + esc(t.reviewsKicker) + '</div>'
-    + '      <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.reviewsTitle) + '</h2>'
+    + '      <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0; text-wrap: balance">' + esc(t.reviewsTitle) + '</h2>'
     + '    </div>'
-    + '    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px">' + renderReviews(t) + '</div>'
+    + '    <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px">' + renderReviews(t) + '</div>'
     + '  </div>'
     + '</section>'
 
-    + '<section id="faq" style="max-width: 780px; margin: 0 auto; padding: 96px 28px">'
+    + '<section id="faq" class="section-pad" style="max-width: 780px; margin: 0 auto; padding: 96px 28px">'
     + '  <div style="text-align: center; margin-bottom: 48px">'
     + '    <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: #755a26; text-transform: uppercase; margin-bottom: 14px">FAQ</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0">' + esc(t.faqTitle) + '</h2>'
+    + '    <h2 class="section-title" style="font-family: \'Playfair Display\', serif; font-size: 46px; font-weight: 600; color: #2b261e; margin: 0">' + esc(t.faqTitle) + '</h2>'
     + '  </div>'
     + '  <div style="display: grid; gap: 12px">' + renderFaq(t) + '</div>'
     + '</section>'
 
     + '<section id="contact" style="position: relative; overflow: hidden; background: linear-gradient(135deg, #2b261e, #503907)">'
-    + '  <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 100px 28px; text-align: center; color: #faefe2">'
+    + '  <div class="section-pad" style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 100px 28px; text-align: center; color: #faefe2">'
     + '    <div style="font-family: \'Playfair Display\', serif; font-size: 20px; letter-spacing: 0.34em; color: #e6c183; margin-bottom: 20px">QIBLA TRAVEL</div>'
-    + '    <h2 style="font-family: \'Playfair Display\', serif; font-size: 54px; font-weight: 600; margin: 0 0 16px; text-wrap: balance">' + esc(t.ctaTitle) + '</h2>'
+    + '    <h2 class="cta-title" style="font-family: \'Playfair Display\', serif; font-size: 54px; font-weight: 600; margin: 0 0 16px; text-wrap: balance">' + esc(t.ctaTitle) + '</h2>'
     + '    <p style="font-size: 17px; line-height: 1.7; color: rgba(245,235,216,0.8); max-width: 560px; margin: 0 auto 36px">' + esc(t.ctaText) + '</p>'
     + '    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center">'
     + '      <a href="' + WA_LINK + '" target="_blank" rel="noopener" class="btn-wa" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #ffffff; padding: 17px 36px; border-radius: 999px; font-size: 15px; font-weight: 800">' + waIcon(20) + esc(t.ctaMain) + '</a>'
@@ -500,7 +500,7 @@
     + '</section>'
 
     + '<footer style="background: #271900; color: rgba(245,235,216,0.7)">'
-    + '  <div style="max-width: 1200px; margin: 0 auto; padding: 56px 28px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px">'
+    + '  <div class="footer-grid" style="max-width: 1200px; margin: 0 auto; padding: 56px 28px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px">'
     + '    <div>'
     + '      <div style="font-family: \'Playfair Display\', serif; font-size: 24px; font-weight: 600; letter-spacing: 0.24em; color: #faefe2">QIBLA TRAVEL</div>'
     + '      <div style="font-size: 12px; letter-spacing: 0.3em; color: #755a26; margin-top: 4px">UMRAH SERVICE</div>'
@@ -583,6 +583,56 @@
     '.card-hover{transition:box-shadow 0.25s, transform 0.25s}' +
     '.card-hover:hover{box-shadow:0 26px 44px -30px rgba(74,60,40,0.4);transform:translateY(-3px)}';
   document.head.appendChild(hoverCss);
+
+  // ── Mobile adaptation ───────────────────────────────────────────────
+  // Uses !important so these author-stylesheet rules win over the
+  // template's inline styles (inline normal declarations lose to
+  // author !important in the CSS cascade).
+  var mobileCss = document.createElement('style');
+  mobileCss.textContent =
+    /* Tablet: hide the sticky nav links (no hamburger yet), keep logo + lang + WA */
+    '@media (max-width: 900px){' +
+    '  .site-nav{display:none !important}' +
+    '  .intro-grid,.why-grid,.guide-grid{grid-template-columns:1fr !important;gap:36px !important}' +
+    '  .why-grid > div:first-child,.guide-grid > div:last-child{order:-1}' +
+    '  .hotels-grid{grid-template-columns:1fr !important}' +
+    '  .pkg-grid{grid-template-columns:repeat(2,1fr) !important}' +
+    '  .reviews-grid{grid-template-columns:1fr 1fr !important}' +
+    '  .footer-grid{grid-template-columns:1fr 1fr !important;gap:28px !important}' +
+    '}' +
+    /* Phones */
+    '@media (max-width: 640px){' +
+    '  .hero-inner{padding:96px 20px 48px !important}' +
+    '  .hero-title{font-size:38px !important;margin:20px 0 16px !important}' +
+    '  .hero-cta-row{flex-direction:column;align-items:stretch !important}' +
+    '  .hero-cta-row a{justify-content:center;text-align:center}' +
+    '  .hero-badges{flex-direction:column}' +
+    '  .hero-badges > div{width:100%;box-sizing:border-box}' +
+    '  .nav-wa-label{display:none}' +
+    '  .nav-wa{padding:10px 12px !important}' +
+    '  .section-pad{padding-left:20px !important;padding-right:20px !important;padding-top:56px !important;padding-bottom:32px !important}' +
+    '  .section-title,.cta-title{font-size:30px !important;line-height:1.15 !important}' +
+    '  .cta-title{font-size:32px !important}' +
+    '  .stats-grid{grid-template-columns:1fr 1fr !important;gap:16px !important;padding-left:20px !important;padding-right:20px !important}' +
+    '  .intro-grid,.why-grid,.guide-grid{padding-left:20px !important;padding-right:20px !important;gap:28px !important}' +
+    '  .pkg-grid{grid-template-columns:1fr !important;padding-left:20px !important;padding-right:20px !important}' +
+    '  #hotels,#package,#program > div,#reviews > div,#instagram,#faq{padding-left:20px !important;padding-right:20px !important}' +
+    '  .hotels-grid{padding-left:0 !important;padding-right:0 !important}' +
+    '  .hotel-photo{height:260px !important}' +
+    '  .program-grid{padding-left:0 !important}' +
+    '  .program-row{grid-template-columns:52px 1fr !important;gap:14px !important}' +
+    '  .program-row [style*="width: 62px"]{width:52px !important;height:52px !important}' +
+    '  .gallery-grid{grid-template-columns:1fr 1fr !important;grid-template-rows:130px 130px 130px !important;padding-left:20px !important;padding-right:20px !important}' +
+    '  .gal-big{grid-column:span 2 !important;grid-row:span 1 !important}' +
+    '  .gal-wide{grid-column:span 2 !important}' +
+    '  .reviews-grid{grid-template-columns:1fr !important;padding-left:20px !important;padding-right:20px !important}' +
+    '  .footer-grid{grid-template-columns:1fr !important;padding-left:20px !important;padding-right:20px !important}' +
+    '}' +
+    '@media (max-width: 380px){' +
+    '  .hero-title{font-size:30px !important}' +
+    '  .stats-grid{grid-template-columns:1fr 1fr !important}' +
+    '}';
+  document.head.appendChild(mobileCss);
 
   render();
 })();
